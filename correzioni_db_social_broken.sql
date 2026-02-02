@@ -37,3 +37,11 @@ FOREIGN KEY (post_id)
 REFERENCES posts(id)
 ON UPDATE CASCADE
 ON DELETE CASCADE;
+
+
+--INDICI
+
+CREATE INDEX idx_likes_user_id ON public.likes USING btree (user_id);
+CREATE INDEX idx_medias_user_id ON public.medias USING btree (user_id);
+CREATE INDEX fki_medias_media_ibfk_2 ON public.media_post USING btree (media_id);
+CREATE INDEX fki_medias_post_ibfk_3 ON public.media_post USING btree (post_id);
